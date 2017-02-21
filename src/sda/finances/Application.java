@@ -15,9 +15,25 @@ public class Application {
 
 
         List<Expense> expenses = init();
+//        expenses.forEach(expense -> {
+//            expense.getProducts().stream()
+//                    .filter(product -> product.getUnitPrice() <= 3)
+//                    .forEach(product -> System.out.println(product));
+//        });
+//        System.out.println();
+//
+//        expenses.stream()
+//                .filter(expense -> expense.getType().equals("spozywcze"))
+//                .forEach(expense -> {
+//                    expense.getProducts().stream()
+//                            .filter(product -> product.getUnitPrice() <= 3)
+//                            .forEach(product -> System.out.println(product));
+//                });
+//        System.out.println();
+//
         expenses.forEach(expense -> {
             expense.getProducts().stream()
-                    .filter(product -> product.getUnitPrice() <= 3)
+                    .filter(product -> product.getName().equals("banan"))
                     .forEach(product -> System.out.println(product));
         });
         System.out.println();
@@ -25,10 +41,10 @@ public class Application {
         expenses.stream()
                 .filter(expense -> expense.getType().equals("spozywcze"))
                 .forEach(expense -> {
-                    expense.getProducts().stream()
-                            .filter(product -> product.getUnitPrice() <= 3)
-                            .forEach(product -> System.out.println(product));
+                    double price = expense.getPrice();
+                    System.out.println(price);
                 });
+        System.out.println();
     }
 
 
@@ -47,9 +63,9 @@ public class Application {
         Expense expense2 = new Expense("budowlane", products2, 2017, 2, 19);
 
         List<Product> products3 = new ArrayList<>();
-        products2.add(new Product("witamina C", 2, 3));
-        products2.add(new Product("apap", 1, 10));
-        products2.add(new Product("syrop", 1, 5));
+        products3.add(new Product("witamina C", 2, 2));
+        products3.add(new Product("apap", 2, 10));
+        products3.add(new Product("syrop", 3, 5));
         Expense expense3 = new Expense("lekarstwa", products3, 2017, 2, 18);
 
         List<Product> products4 = new ArrayList<>();
